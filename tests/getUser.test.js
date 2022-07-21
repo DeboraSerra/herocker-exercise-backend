@@ -15,10 +15,10 @@ describe('Resposta do endpoint GET /users', function () {
 	}];
 
   jest.spyOn(User, 'findAll').mockImplementation(() => findAllMock);
-  response = await supertest(app)
-    .get('/users');
 
-  it('deve retornar um array de objetos idêntico ao usado no Stub', () => {
+  it('deve retornar um array de objetos idêntico ao usado no Stub', async () => {
+		response = await supertest(app)
+			.get('/users');
     expect(response.body).toEqual(findAllMock);
   });
 })
