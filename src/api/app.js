@@ -1,3 +1,4 @@
+require('dotenv/config');
 const express = require('express');
 const rescue = require('express-rescue');
 const UserController = require('../controllers/user');
@@ -7,6 +8,6 @@ const app = express();
 
 app.get('/users', rescue(UserController));
 
-app.use(errorMiddleware); 
+app.use(errorMiddleware);
 
 module.exports = app;
